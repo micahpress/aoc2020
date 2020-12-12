@@ -6,12 +6,16 @@ import dayfive.DayFiveEngine
 import dayfive.DayFiveImporter
 import dayfour.DayFourEngine
 import dayfour.DayFourImporter
+import daynine.DayNineEngine
+import daynine.DayNineImporter
 import dayone.DayOneEngine
 import dayone.DayOneImporter
 import dayseven.DaySevenEngine
 import dayseven.DaySevenImporter
 import daysix.DaySixEngine
 import daysix.DaySixImporter
+import dayten.DayTenEngine
+import dayten.DayTenImporter
 import daythree.DayThreeEngine
 import daythree.DayThreeImporter
 import daytwo.DayTwoEngine
@@ -66,6 +70,18 @@ fun daySeven() {
 fun dayEight() {
     val importer = DayEightImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayEight.txt")
     val engine = DayEightEngine(importer)
+    engine.run()
+}
+
+fun dayNine() {
+    val importer = DayNineImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayNine.txt")
+    val engine = DayNineEngine(importer)
+    engine.run()
+}
+
+fun dayTen() {
+    val importer = DayTenImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayTen.txt")
+    val engine = DayTenEngine(importer)
     engine.run()
 }
 
