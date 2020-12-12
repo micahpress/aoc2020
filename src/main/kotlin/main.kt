@@ -1,5 +1,7 @@
 import dayeight.DayEightEngine
 import dayeight.DayEightImporter
+import dayeleven.DayElevenEngine
+import dayeleven.DayElevenImporter
 import dayfive.DayFiveEngine
 import dayfive.DayFiveImporter
 import dayfour.DayFourEngine
@@ -16,7 +18,7 @@ import daytwo.DayTwoEngine
 import daytwo.DayTwoImporter
 
 fun main(args: Array<String>) {
-    dayEight()
+    dayEleven()
 }
 
 fun dayOne() {
@@ -64,5 +66,11 @@ fun daySeven() {
 fun dayEight() {
     val importer = DayEightImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayEight.txt")
     val engine = DayEightEngine(importer)
+    engine.run()
+}
+
+fun dayEleven() {
+    val importer = DayElevenImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayEleven.txt")
+    val engine = DayElevenEngine(importer)
     engine.run()
 }
