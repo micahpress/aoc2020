@@ -45,46 +45,28 @@ class DayNineEngine(
         return false
     }
 
-//    private fun findRange(target: Long): List<Long> {
-//        var beginInd = 0
-//        var endInd = 1
-//        var runningTotal = input[beginInd] + input[endInd]
-//        while(endInd < input.size && beginInd < endInd && runningTotal != target) {
-//            if (runningTotal < target) {
-//                endInd++
-//                runningTotal += input[endInd]
-//            } else if (runningTotal > target) {
-//                beginInd++
-//                runningTotal -= input[beginInd]
-//            }
-//        }
-//        if (runningTotal == target) {
-//            return input.subList(beginInd, endInd + 1)
-//        } else {
-//            throw NoSuchElementException()
-//        }
-//    }
-
     private fun findRange(target: Long): List<Long> {
+        val inputCopy = input.toMutableList()
         var beginInd = 0
-        while (beginInd < input.size - 1) {
-            var endInd = beginInd + 1
-            var runningTotal = input[beginInd] + input[endInd]
+        var endInd = 1
+        var runningTotal = inputCopy[beginInd] + inputCopy[endInd]
 
-            while (endInd < input.size && runningTotal < target) {
+        while (runningTotal != target && endInd < inputCopy.size) {
+            if (runningTotal < target) {
                 endInd++
-                runningTotal += input[endInd]
+                runningTotal += inputCopy[endInd]
+            } else if (runningTotal > target) {
+                runningTotal -= inputCopy[beginInd]
+                beginInd++
             }
-
-            if (runningTotal == target) {
-                val toReturn = input.subList(beginInd, endInd + 1).toMutableList()
-                toReturn.sort()
-                return toReturn
-            }
-
-            beginInd++
         }
 
-        throw NoSuchElementException()
+        if (runningTotal == target) {
+            val toReturn = inputCopy.subList(beginInd, endInd + 1)
+            toReturn.sort()
+            return toReturn
+        } else {
+            throw NoSuchElementException()
+        }
     }
 }
