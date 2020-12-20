@@ -16,16 +16,30 @@ import daysix.DaySixEngine
 import daysix.DaySixImporter
 import dayten.DayTenEngine
 import dayten.DayTenImporter
+import daythirteen.DayThirteenEngine
+import daythirteen.DayThirteenImporter
 import daythree.DayThreeEngine
 import daythree.DayThreeImporter
 import daytwelve.DayTwelveEngine
 import daytwelve.DayTwelveImporter
 import daytwo.DayTwoEngine
 import daytwo.DayTwoImporter
+//import base.BaseEngine
+//import base.BaseImporter
 
 fun main(args: Array<String>) {
-    dayTwelve()
+    dayThirteen()
 }
+
+//fun createObjAndRun(
+//    filePath: String,
+//    importerConst: (filePath: String) -> BaseImporter<T>,
+//    engineConst: (BaseImporter<T>) -> BaseEngine<T>
+//) {
+//    val importer = importerConst(filePath)
+//    val engine = engineConst(importer)
+//    engine.run()
+//}
 
 fun dayOne() {
     val importer = DayOneImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayOne.txt")
@@ -96,5 +110,11 @@ fun dayEleven() {
 fun dayTwelve() {
     val importer = DayTwelveImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayTwelve.txt")
     val engine = DayTwelveEngine(importer)
+    engine.run()
+}
+
+fun dayThirteen() {
+    val importer = DayThirteenImporter("/home/mpress/IdeaProjects/aoc/src/main/input/dayThirteen.txt")
+    val engine = DayThirteenEngine(importer)
     engine.run()
 }
